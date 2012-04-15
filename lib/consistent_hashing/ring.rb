@@ -53,7 +53,7 @@ module ConsistentHashing
       self
     end
 
-    # Public: gets the node for an arbitrary key
+    # Public: gets the point for an arbitrary key
     #
     #
     def point_for(key)
@@ -67,7 +67,13 @@ module ConsistentHashing
 
       @ring[@sorted_keys[0]]
     end
-    alias :node_for :point_for
+
+    # Public: gets the node where to store the key
+    #
+    # Returns: the node Object
+    def node_for(key)
+      point_for(key).node
+    end
 
     # Public: get all nodes in the ring
     #

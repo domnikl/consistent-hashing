@@ -13,15 +13,17 @@ Examples
 --------
 
 ```ruby
+require 'consistent_hashing'
+
 ring = ConsistentHashing::Ring.new
 ring << "192.168.1.101" << "192.168.1.102"
 
-ring.point_for("foobar") # => 192.168.1.101
+ring.node_for("foobar") # => 192.168.1.101
 ring.delete("192.168.1.101")
 
 # after removing 192.168.1.101, all keys previously mapped to it move clockwise to
 # the next node
-ring.point_for("foobar") # => 192.168.1.102
+ring.node_for("foobar") # => 192.168.1.102
 
 ring.nodes # => ["192.168.1.101", "192.168.1.102"]
 ring.points # => [#<ConsistentHashing::VirtualPoint>, #<ConsistentHashing::VirtualPoint>, ...]
