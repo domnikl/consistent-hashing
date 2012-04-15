@@ -13,6 +13,8 @@ Examples
 --------
 
 ```ruby
+require 'consistent_hashing'
+
 ring = ConsistentHashing::Ring.new
 ring << "192.168.1.101" << "192.168.1.102"
 
