@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="consistent-hashing : an implementation of Consistent Hashing in Ruby" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>consistent-hashing</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/domnikl/consistent-hashing">Fork Me on GitHub</a>
+
+          <h1 id="project_title">consistent-hashing</h1>
+          <h2 id="project_tagline">an implementation of Consistent Hashing in Ruby</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/domnikl/consistent-hashing/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/domnikl/consistent-hashing/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>Features</h2>
+
+<ul>
+<li>set number of replicas to create multiple virtual points in the ring for each node</li>
+<li>nodes can be arbitrary data (e.g. a Memcache client instance)</li>
+</ul><h2>Examples</h2>
+
+<div class="highlight">
+<pre><span class="nb">require</span> <span class="s1">'consistent_hashing'</span>
+
+<span class="n">ring</span> <span class="o">=</span> <span class="no">ConsistentHashing</span><span class="o">::</span><span class="no">Ring</span><span class="o">.</span><span class="n">new</span>
+<span class="n">ring</span> <span class="o">&lt;&lt;</span> <span class="s2">"192.168.1.101"</span> <span class="o">&lt;&lt;</span> <span class="s2">"192.168.1.102"</span>
+
+<span class="n">ring</span><span class="o">.</span><span class="n">node_for</span><span class="p">(</span><span class="s2">"foobar"</span><span class="p">)</span> <span class="c1"># =&gt; 192.168.1.101</span>
+<span class="n">ring</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">"192.168.1.101"</span><span class="p">)</span>
+
+<span class="c1"># after removing 192.168.1.101, all keys previously mapped to it move clockwise to</span>
+<span class="c1"># the next node</span>
+<span class="n">ring</span><span class="o">.</span><span class="n">node_for</span><span class="p">(</span><span class="s2">"foobar"</span><span class="p">)</span> <span class="c1"># =&gt; 192.168.1.102</span>
+
+<span class="n">ring</span><span class="o">.</span><span class="n">nodes</span> <span class="c1"># =&gt; ["192.168.1.101", "192.168.1.102"]</span>
+<span class="n">ring</span><span class="o">.</span><span class="n">points</span> <span class="c1"># =&gt; [#&lt;ConsistentHashing::VirtualPoint&gt;, #&lt;ConsistentHashing::VirtualPoint&gt;, ...]</span>
+</pre>
+</div>
+
+
+<h2>Install</h2>
+
+<ul>
+<li><code>[sudo] gem install consistent-hashing</code></li>
+</ul><h2>Author</h2>
+
+<p>Original author: Dominik Liebler <a href="mailto:liebler.dominik@googlemail.com">liebler.dominik@googlemail.com</a></p>
+
+<h2>License</h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright (c) 2012 Dominik Liebler</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">consistent-hashing maintained by <a href="https://github.com/domnikl">domnikl</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-9816149-11");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
