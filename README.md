@@ -18,7 +18,7 @@ ring << "192.168.1.101" << "192.168.1.102"
 ring.node_for("foobar") # => 192.168.1.101
 ring.delete("192.168.1.101")
 
-# after removing node 2, all keys previously mapped to it move clockwise to
+# after removing 192.168.1.101, all keys previously mapped to it move clockwise to
 # the next node
 ring.node_for("foobar") # => 192.168.1.102
 ```
