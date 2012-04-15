@@ -48,8 +48,8 @@ class TestRing < ConsistentHashing::TestCase
     assert_equal "B", @ring.point_for(@examples["C"]).node
   end
 
-  def test_point_for_alias
-    assert_equal "C", @ring.node_for(@examples["C"]).node
+  def test_point_for
+    assert_equal "C", @ring.node_for(@examples["C"])
   end
 
   def test_arbitrary_node_data
