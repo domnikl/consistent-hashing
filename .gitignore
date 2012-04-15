@@ -1,0 +1,9 @@
+# RubyMine
+.idea
+*.gemspec
+
+# gem/bones
+announcement.txt
+coverage
+doc
+pkg
