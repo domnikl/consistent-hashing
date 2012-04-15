@@ -62,7 +62,7 @@ module ConsistentHashing
         return [@ring[i], i] if key <= i
       end
 
-      return [@ring[@sorted_keys[0]], 0]
+      [@ring[@sorted_keys[0]], 0]
     end
 
     protected
@@ -72,7 +72,7 @@ module ConsistentHashing
     # Returns: a String
     def hash_key(key, index = nil)
       key = "#{key}:#{index}" if index
-      Digest::MD5.hexdigest(key)[0..16].hex
+      Digest::MD5.hexdigest(key.to_s)[0..16].hex
     end
   end
 end

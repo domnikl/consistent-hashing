@@ -1,4 +1,8 @@
 $:.unshift(File.join(File.dirname(__FILE__), %w{.. lib}))
+
+require 'simplecov'
+SimpleCov.start
+
 require 'consistent_hashing'
 require 'test/unit'
 

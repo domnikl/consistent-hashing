@@ -7,7 +7,8 @@ class TestRing < ConsistentHashing::TestCase
     @examples = {
       "A" => "foobar",
       "B" => "123",
-      "C" => "baz"
+      "C" => "baz",
+      "not_found" => 0
     }
   end
 
@@ -30,17 +31,19 @@ class TestRing < ConsistentHashing::TestCase
     assert_equal "C", @ring.node_for(@examples["C"])[0]
   end
 
+  # should fall back to the first node, if key > last node
+  def test_get_node_fallback_to_first
+    ring = ConsistentHashing::Ring.new ["A"], 1
+
+    assert_equal "A", ring.node_for(@examples["not_found"])[0]
+    assert_equal 0, ring.node_for(@examples["not_found"])[1]
+
+  end
+
   # if I remove node C, all keys previously mapped to C should be moved clockwise to
   # the next node. That's a virtual point of B here
   def test_remove_node
     @ring.delete("C")
     assert_equal "B", @ring.node_for(@examples["C"])[0]
-
-
-    ring = ConsistentHashing::Ring.new
-    ring << "192.168.1.101" << "192.168.1.102"
-
-    puts ring.node_for("foobar")
   end
-
 end
