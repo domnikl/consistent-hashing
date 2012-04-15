@@ -1,8 +1,11 @@
 require 'digest/md5'
+require 'set'
 
 module ConsistentHashing
+
+  # Public: the hash ring containing all configured nodes
+  #
   class Ring
-    attr_reader :ring
 
     # Public: returns a new ring object
     def initialize(nodes = [], replicas = 3)
@@ -27,7 +30,7 @@ module ConsistentHashing
         # generate the key of this (virtual) point in the hash
         key = hash_key(node, i)
 
-        @ring[key] = node
+        @ring[key] = VirtualPoint.new(node, key)
         @sorted_keys << key
       end
 
@@ -53,16 +56,32 @@ module ConsistentHashing
     # Public: gets the node for an arbitrary key
     #
     #
-    def node_for(key)
-      return [nil, 0] if @ring.empty?
+    def point_for(key)
+      return nil if @ring.empty?
 
       key = hash_key(key)
 
       @sorted_keys.each do |i|
-        return [@ring[i], i] if key <= i
+        return @ring[i] if key <= i
       end
 
-      [@ring[@sorted_keys[0]], 0]
+      @ring[@sorted_keys[0]]
+    end
+    alias :node_for :point_for
+
+    # Public: get all nodes in the ring
+    #
+    # Returns: an Array of the nodes in the ring
+    def nodes
+      nodes = points.map { |point| point.node }
+      nodes.uniq
+    end
+
+    # Public: gets all points in the ring
+    #
+    # Returns: an Array of the points in the ring
+    def points
+      @ring.map { |point| point[1] }
     end
 
     protected

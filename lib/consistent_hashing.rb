@@ -8,6 +8,7 @@ module ConsistentHashing
   # Internal: loads all necessary lib files
   #
   def self.load_lib
+    require File.join(LIBPATH, 'consistent_hashing', 'virtual_point')
     require File.join(LIBPATH, 'consistent_hashing', 'ring')
   end
 end
