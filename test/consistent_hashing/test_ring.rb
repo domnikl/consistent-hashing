@@ -37,7 +37,6 @@ class TestRing < ConsistentHashing::TestCase
 
     assert_equal "A", ring.node_for(@examples["not_found"])[0]
     assert_equal 0, ring.node_for(@examples["not_found"])[1]
-
   end
 
   # if I remove node C, all keys previously mapped to C should be moved clockwise to
