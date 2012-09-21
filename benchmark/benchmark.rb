@@ -1,3 +1,5 @@
+$:.unshift(File.join(File.dirname(__FILE__), %w{.. lib}))
+
 require 'benchmark'
 require 'ipaddr'
 require 'consistent_hashing'

@@ -1,13 +1,14 @@
 consistent-hashing
 ==================
 
-A generic implementation of the Consistent Hashing algorithm.
+A generic implementation of the Consistent Hashing algorithm using an AVL tree.
 
 Features
 --------
 
 * set number of replicas to create multiple virtual points in the ring for each node
 * nodes can be arbitrary data (e.g. a Memcache client instance)
+* fast performance through using an AVL tree internally
 
 Examples
 --------

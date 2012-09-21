@@ -15,4 +15,5 @@ Bones {
   email    'liebler.dominik@googlemail.com'
   url      'https://github.com/domnikl/consistent-hashing'
   ignore_file  '.gitignore'
+  depend_on 'avl_tree'
 }

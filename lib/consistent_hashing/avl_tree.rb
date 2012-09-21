@@ -34,7 +34,7 @@ module ConsistentHashing
         after = next_gte_node(node.left, key)
         after = node if after.empty?
       elsif key > node.key
-        # The current key is will not be after the provided key, but something
+        # The current key will not be after the provided key, but something
         # in the right branch maybe. Check the right branch for the first key
         # larger than our value.
         after = next_gte_node(node.right, key)
@@ -47,4 +47,3 @@ module ConsistentHashing
     end
   end
 end
-
