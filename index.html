@@ -4,7 +4,7 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="consistent-hashing : an implementation of Consistent Hashing in Ruby" />
+    <meta name="description" content="consistent-hashing : A generic implementation of the Consistent Hashing algorithm in pure Ruby using an AVL tree." />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
@@ -16,15 +16,15 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/domnikl/consistent-hashing">Fork Me on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/domnikl/consistent-hashing">View on GitHub</a>
 
           <h1 id="project_title">consistent-hashing</h1>
-          <h2 id="project_tagline">an implementation of Consistent Hashing in Ruby</h2>
+          <h2 id="project_tagline">A generic implementation of the Consistent Hashing algorithm in pure Ruby using an AVL tree.</h2>
 
-          <section id="downloads">
-            <a class="zip_download_link" href="https://github.com/domnikl/consistent-hashing/zipball/master">Download this project as a .zip file</a>
-            <a class="tar_download_link" href="https://github.com/domnikl/consistent-hashing/tarball/master">Download this project as a tar.gz file</a>
-          </section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/domnikl/consistent-hashing/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/domnikl/consistent-hashing/tarball/master">Download this project as a tar.gz file</a>
+            </section>
         </header>
     </div>
 
@@ -36,10 +36,10 @@
 <ul>
 <li>set number of replicas to create multiple virtual points in the ring for each node</li>
 <li>nodes can be arbitrary data (e.g. a Memcache client instance)</li>
+<li>very good performance through using an AVL tree internally</li>
 </ul><h2>Examples</h2>
 
-<div class="highlight">
-<pre><span class="nb">require</span> <span class="s1">'consistent_hashing'</span>
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'consistent_hashing'</span>
 
 <span class="n">ring</span> <span class="o">=</span> <span class="no">ConsistentHashing</span><span class="o">::</span><span class="no">Ring</span><span class="o">.</span><span class="n">new</span>
 <span class="n">ring</span> <span class="o">&lt;&lt;</span> <span class="s2">"192.168.1.101"</span> <span class="o">&lt;&lt;</span> <span class="s2">"192.168.1.102"</span>
@@ -53,9 +53,7 @@
 
 <span class="n">ring</span><span class="o">.</span><span class="n">nodes</span> <span class="c1"># =&gt; ["192.168.1.101", "192.168.1.102"]</span>
 <span class="n">ring</span><span class="o">.</span><span class="n">points</span> <span class="c1"># =&gt; [#&lt;ConsistentHashing::VirtualPoint&gt;, #&lt;ConsistentHashing::VirtualPoint&gt;, ...]</span>
-</pre>
-</div>
-
+</pre></div>
 
 <h2>Install</h2>
 
