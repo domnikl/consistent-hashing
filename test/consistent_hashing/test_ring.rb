@@ -51,4 +51,20 @@ class TestRing < ConsistentHashing::TestCase
   def test_point_for
     assert_equal "C", @ring.node_for(@examples["C"])
   end
+
+  def test_nodes
+    nodes = @ring.nodes
+
+    assert_equal 3, nodes.length
+    assert_not_equal nil, nodes.index("A")
+    assert_not_equal nil, nodes.index("B")
+    assert_not_equal nil, nodes.index("C")
+  end
+
+  def test_points
+    ring = ConsistentHashing::Ring.new %w{A B C}, 3
+
+    points = ring.points
+    assert_equal 9, points.length
+  end
 end
