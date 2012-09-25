@@ -3,7 +3,7 @@ $:.unshift(File.join(File.dirname(__FILE__), %w{.. lib}))
 begin
   require 'simplecov'
   SimpleCov.start
-rescue
+rescue LoadError => e
   # ignore
 end
 
