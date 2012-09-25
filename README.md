@@ -1,6 +1,8 @@
 consistent-hashing
 ==================
 
+[![Build Status](https://secure.travis-ci.org/domnikl/consistent-hashing.png)](http://travis-ci.org/domnikl/consistent-hashing)
+
 A generic implementation of the Consistent Hashing algorithm using an AVL tree.
 
 Features
