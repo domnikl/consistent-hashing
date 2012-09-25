@@ -16,4 +16,5 @@ Bones {
   url      'http://domnikl.github.com/consistent-hashing/'
   ignore_file  '.gitignore'
   depend_on 'simplecov', :development => true
+  depend_on 'avl_tree'
 }

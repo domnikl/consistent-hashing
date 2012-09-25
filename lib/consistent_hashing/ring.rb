@@ -10,8 +10,7 @@ module ConsistentHashing
     # Public: returns a new ring object
     def initialize(nodes = [], replicas = 3)
       @replicas = replicas
-      @sorted_keys = []
-      @ring = Hash.new
+      @ring = AVLTree.new
 
       nodes.each { |node| add(node) }
     end
@@ -31,10 +30,7 @@ module ConsistentHashing
         key = hash_key(node, i)
 
         @ring[key] = VirtualPoint.new(node, key)
-        @sorted_keys << key
       end
-
-      @sorted_keys.sort!
 
       self
     end
@@ -47,7 +43,6 @@ module ConsistentHashing
         key = hash_key(node, i)
 
         @ring.delete key
-        @sorted_keys.delete key
       end
 
       self
@@ -58,14 +53,10 @@ module ConsistentHashing
     #
     def point_for(key)
       return nil if @ring.empty?
-
       key = hash_key(key)
-
-      @sorted_keys.each do |i|
-        return @ring[i] if key <= i
-      end
-
-      @ring[@sorted_keys[0]]
+      _, value = @ring.next_gte_pair(key)
+      _, value = @ring.minimum_pair unless value
+      value
     end
 
     # Public: gets the node where to store the key

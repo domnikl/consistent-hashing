@@ -52,33 +52,19 @@ class TestRing < ConsistentHashing::TestCase
     assert_equal "C", @ring.node_for(@examples["C"])
   end
 
-  def test_arbitrary_node_data
-    nodes = [
-      {"host" => "192.168.1.101"},
-      {"host" => "192.168.1.102"},
-      {"host" => "192.168.1.103"}
-    ]
+  def test_nodes
+    nodes = @ring.nodes
 
-    ring = ConsistentHashing::Ring.new(nodes)
-    assert_equal 9, ring.length
-
-    ring_nodes = ring.nodes
-    assert_equal 3, ring_nodes.length
-    assert_equal "192.168.1.102", ring_nodes[1]['host']
+    assert_equal 3, nodes.length
+    assert_not_equal nil, nodes.index("A")
+    assert_not_equal nil, nodes.index("B")
+    assert_not_equal nil, nodes.index("C")
   end
 
   def test_points
-    nodes = [
-      {"host" => "192.168.1.101"},
-      {"host" => "192.168.1.102"},
-      {"host" => "192.168.1.103"}
-    ]
+    ring = ConsistentHashing::Ring.new %w{A B C}, 3
 
-    ring = ConsistentHashing::Ring.new(nodes)
     points = ring.points
-
     assert_equal 9, points.length
-    assert_not_equal 0, points[0].index
-    assert_equal "192.168.1.101", points[0].node['host']
   end
 end

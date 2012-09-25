@@ -10,6 +10,7 @@ module ConsistentHashing
   def self.load_lib
     require File.join(LIBPATH, 'consistent_hashing', 'virtual_point')
     require File.join(LIBPATH, 'consistent_hashing', 'ring')
+    require File.join(LIBPATH, 'consistent_hashing', 'avl_tree')
   end
 end
 
