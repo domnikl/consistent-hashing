@@ -2,6 +2,8 @@
 
 A generic implementation of the Consistent Hashing algorithm using an AVL tree.
 
+[![Build Status](https://travis-ci.org/domnikl/consistent-hashing.png?branch=develop)](https://travis-ci.org/domnikl/consistent-hashing) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/domnikl/consistent-hashing)
+
 ## Features
 
 * set number of replicas to create multiple virtual points in the ring for each node
