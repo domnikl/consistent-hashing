@@ -1,17 +1,14 @@
-consistent-hashing
-==================
+# consistent-hashing
 
 A generic implementation of the Consistent Hashing algorithm using an AVL tree.
 
-Features
---------
+## Features
 
 * set number of replicas to create multiple virtual points in the ring for each node
 * nodes can be arbitrary data (e.g. a Memcache client instance)
 * fast performance through using an AVL tree internally
 
-Examples
---------
+## Examples
 
 ```ruby
 require 'consistent_hashing'
@@ -30,18 +27,15 @@ ring.nodes # => ["192.168.1.101", "192.168.1.102"]
 ring.points # => [#<ConsistentHashing::VirtualPoint>, #<ConsistentHashing::VirtualPoint>, ...]
 ```
 
-Install
--------
+## Installation
 
 * `[sudo] gem install consistent-hashing`
 
-Author
-------
+## Author
 
 Original author: Dominik Liebler <liebler.dominik@googlemail.com>
 
-License
--------
+## License
 
 (The MIT License)
 
