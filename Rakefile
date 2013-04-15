@@ -13,7 +13,8 @@ Bones {
   name     'consistent-hashing'
   authors  'Dominik Liebler'
   email    'liebler.dominik@googlemail.com'
-  url      'https://github.com/domnikl/consistent-hashing'
+  url      'http://domnikl.github.com/consistent-hashing/'
   ignore_file  '.gitignore'
+  depend_on 'simplecov', :development => true
   depend_on 'avl_tree'
 }

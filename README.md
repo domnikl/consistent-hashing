@@ -2,7 +2,7 @@
 
 A generic implementation of the Consistent Hashing algorithm using an AVL tree.
 
-[![Build Status](https://travis-ci.org/domnikl/consistent-hashing.png?branch=develop)](https://travis-ci.org/domnikl/consistent-hashing) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/domnikl/consistent-hashing)
+[![Build Status](https://travis-ci.org/domnikl/consistent-hashing.png?branch=develop)](https://travis-ci.org/domnikl/consistent-hashing) [![Code Climate](https://codeclimate.com/github/domnikl/consistent-hashing.png)](https://codeclimate.com/github/domnikl/consistent-hashing)
 
 ## Features
 
@@ -41,7 +41,7 @@ Original author: Dominik Liebler <liebler.dominik@googlemail.com>
 
 (The MIT License)
 
-Copyright (c) 2012 Dominik Liebler
+Copyright (c) 2013 Dominik Liebler
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
