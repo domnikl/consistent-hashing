@@ -1,20 +1,38 @@
 require 'rubygems'
+require 'rake/testtask'
 
-begin
-  require 'bones'
-rescue LoadError
-  abort '### Please install the "bones" gem ###'
+task :default => 'test'
+
+$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
+require "consistent_hashing"
+
+gem_name = "consistent-hashing-#{ConsistentHashing::VERSION}.gem"
+
+namespace :gem do
+    desc "clean previously generated gems"
+    task :clean do
+      system "rm -f *.gem"
+    end
+    
+    desc "build gem"
+    task :build => [:clean, :test] do
+      system "gem build consistent-hashing.gemspec"
+    end
+
+    desc "install gem"
+    task :install => :build do
+      system "gem install #{gem_name}"
+    end
+
+    desc "release to rubygems.org"
+    task :release => :build do
+      system "gem push #{gem_name}"
+    end
 end
 
-task :default => 'test:run'
-task 'gem:release' => 'test:run'
-
-Bones {
-  name     'consistent-hashing'
-  authors  'Dominik Liebler'
-  email    'liebler.dominik@googlemail.com'
-  url      'http://domnikl.github.com/consistent-hashing/'
-  ignore_file  '.gitignore'
-  depend_on 'simplecov', :development => true
-  depend_on 'avl_tree'
-}
+Rake::TestTask.new do |t|
+  t.libs = ["lib"]
+  t.warning = true
+  t.verbose = true
+  t.test_files = FileList['test/**/test_*.rb']
+end
