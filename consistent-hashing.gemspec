@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dominik Liebler"]
-  s.date = "2013-04-27"
+  s.date = File.mtime('version.txt')
   s.description = "a Consistent Hashing implementation in pure Ruby using an AVL Tree"
   s.email = "liebler.dominik@googlemail.com"
   s.extra_rdoc_files = ["History.txt"]
