@@ -31,10 +31,15 @@ module ConsistentHashing
 
         @ring[key] = VirtualPoint.new(node, key)
       end
+    end
 
+    # Public: adds a new node into the hash ring like `add` but returns
+    # a reference to the ring to be used as a fluent interface
+    #
+    def <<(node)
+      add(node)
       self
     end
-    alias :<< :add
 
     # Public: removes a node from the hash ring
     #

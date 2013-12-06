@@ -25,6 +25,18 @@ class TestRing < ConsistentHashing::TestCase
     assert_equal 6, ring.length
   end
 
+  # builds a rather huge ring of 1024 nodes and 10 replicas each
+  #
+  def test_add_huge
+    replicas = 10
+    ring = ConsistentHashing::Ring.new([], replicas)
+    assert_equal 0, ring.length
+
+    (1..1024).map {|i| ring.add(i)}
+
+    assert_equal 10240, ring.length
+  end
+
   def test_get_node
     assert_equal "A", @ring.point_for(@examples["A"]).node
     assert_equal "B", @ring.point_for(@examples["B"]).node

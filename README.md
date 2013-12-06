@@ -29,6 +29,11 @@ ring.nodes # => ["192.168.1.101", "192.168.1.102"]
 ring.points # => [#<ConsistentHashing::VirtualPoint>, #<ConsistentHashing::VirtualPoint>, ...]
 ```
 
+## A note on large rings
+
+For large amounts of nodes, avoid using the `<<` method. Use `add` instead to add the nodes to the ring. The reason for
+this is, that each call to `<<` returns a reference to the complete ring, which can get quite big.
+
 ## Installation
 
 * `[sudo] gem install consistent-hashing`
