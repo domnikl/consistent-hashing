@@ -10,4 +10,4 @@ rvm:
 before_install: gem install bones simplecov avl_tree
 notifications:
   recipients:
-    - liebler.dominik@googlemail.com
+    - liebler.dominik@gmail.com
