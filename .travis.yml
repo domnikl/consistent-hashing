@@ -5,7 +5,6 @@ rvm:
   - 2.5.1
   - 2.4.4
   - jruby-head
-before_install: gem install bones simplecov avl_tree
 notifications:
   recipients:
     - liebler.dominik@gmail.com
