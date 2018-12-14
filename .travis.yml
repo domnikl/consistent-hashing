@@ -1,9 +1,12 @@
 language: ruby
 rvm:
-  - 1.9.3
-  - 2.2.9
-  - 2.5.1
-  - 2.4.4
+  - 2.1.10
+  - 2.2.10
+  - 2.3.8
+  - 2.4.5
+  - 2.5.3
+  - ruby-head
+  - mruby-head
   - jruby-head
 notifications:
   recipients:
