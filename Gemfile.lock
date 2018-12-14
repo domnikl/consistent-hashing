@@ -30,6 +30,7 @@ PLATFORMS
 DEPENDENCIES
   avl_tree!
   bones!
+  rake!
   simplecov!
   test-unit!
 
