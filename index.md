@@ -10,7 +10,8 @@
 require 'consistent_hashing'
 
 ring = ConsistentHashing::Ring.new
-ring << "192.168.1.101" << "192.168.1.102"
+ring << "192.168.1.101"
+ring << "192.168.1.102"
 
 ring.node_for("foobar") # => 192.168.1.101
 ring.delete("192.168.1.101")
@@ -29,13 +30,13 @@ ring.points # => [#<ConsistentHashing::VirtualPoint>, #<ConsistentHashing::Virtu
 
 ## Author
 
-Original author: Dominik Liebler <liebler.dominik@googlemail.com>
+Original author: Dominik Liebler <liebler.dominik@gmail.com>
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2012 Dominik Liebler
+Copyright (c) 2012 - 2019 Dominik Liebler
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
