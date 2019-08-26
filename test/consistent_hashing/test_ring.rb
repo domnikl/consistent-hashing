@@ -21,7 +21,8 @@ class TestRing < ConsistentHashing::TestCase
     ring = ConsistentHashing::Ring.new([], 3)
     assert_equal 0, ring.length
 
-    ring << "A" << "B"
+    ring << "A"
+    ring << "B"
     assert_equal 6, ring.length
   end
 

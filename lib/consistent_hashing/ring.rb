@@ -33,12 +33,10 @@ module ConsistentHashing
       end
     end
 
-    # Public: adds a new node into the hash ring like `add` but returns
-    # a reference to the ring to be used as a fluent interface
+    # Public: an alias for `add`
     #
     def <<(node)
       add(node)
-      self
     end
 
     # Public: removes a node from the hash ring
@@ -49,8 +47,6 @@ module ConsistentHashing
 
         @ring.delete key
       end
-
-      self
     end
 
     # Public: gets the point for an arbitrary key

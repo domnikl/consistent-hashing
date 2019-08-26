@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors = ["Dominik Liebler"]
   s.date = File.mtime('version.txt')
   s.description = "a Consistent Hashing implementation in pure Ruby using an AVL Tree"
-  s.email = "liebler.dominik@googlemail.com"
+  s.email = "liebler.dominik@gmail.com"
   s.extra_rdoc_files = ["History.txt"]
   s.files = Dir.glob("{bin,lib,test,benchmark}/**/*") + %w(README.md History.txt Rakefile version.txt)
   s.homepage = "https://github.com/domnikl/consistent-hashing"

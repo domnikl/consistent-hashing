@@ -16,7 +16,8 @@ A generic implementation of the Consistent Hashing algorithm using an AVL tree.
 require 'consistent_hashing'
 
 ring = ConsistentHashing::Ring.new
-ring << "192.168.1.101" << "192.168.1.102"
+ring << "192.168.1.101"
+ring << "192.168.1.102"
 
 ring.node_for("foobar") # => 192.168.1.101
 ring.delete("192.168.1.101")
@@ -29,24 +30,19 @@ ring.nodes # => ["192.168.1.101", "192.168.1.102"]
 ring.points # => [#<ConsistentHashing::VirtualPoint>, #<ConsistentHashing::VirtualPoint>, ...]
 ```
 
-## A note on large rings
-
-For large amounts of nodes, avoid using the `<<` method. Use `add` instead to add the nodes to the ring. The reason for
-this is, that each call to `<<` returns a reference to the complete ring, which can get quite big.
-
 ## Installation
 
 * `[sudo] gem install consistent-hashing`
 
 ## Author
 
-Original author: Dominik Liebler <liebler.dominik@googlemail.com>
+Original author: Dominik Liebler <liebler.dominik@gmail.com>
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2013 - 2017 Dominik Liebler
+Copyright (c) 2013 - 2019 Dominik Liebler
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
