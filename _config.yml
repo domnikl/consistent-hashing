@@ -1,0 +1,8 @@
+title: consistent-hashing
+description: A generic implementation of the Consistent Hashing algorithm in pure Ruby using an AVL tree.
+google_analytics: UA-9816149-11
+show_downloads: true
+theme: jekyll-theme-architect
+
+gems:
+  - jekyll-mentions
