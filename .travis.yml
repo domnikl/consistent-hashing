@@ -5,7 +5,6 @@ rvm:
   - 2.3
   - 2.4
   - 2.5
-  - ruby-head
   - jruby-head
 notifications:
   recipients:
