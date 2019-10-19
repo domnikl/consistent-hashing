@@ -2,7 +2,7 @@
 
 A generic implementation of the Consistent Hashing algorithm using an AVL tree.
 
-[![Build Status](https://travis-ci.org/domnikl/consistent-hashing.png?branch=develop)](https://travis-ci.org/domnikl/consistent-hashing) [![Code Climate](https://codeclimate.com/github/domnikl/consistent-hashing.png)](https://codeclimate.com/github/domnikl/consistent-hashing)
+*2019-10-19* I archived this project as there hasn't been any recent activity and I have moved on to other projects. You can still download and use it though.
 
 ## Features
 
